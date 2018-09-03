@@ -1,0 +1,96 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Kana Reading Practice</title>
+    <meta name="description" content="Practice reading Kana by reading real japanese words!">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    <script src="scripts/wanakana.min.js"></script>
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/scripts/client.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>
+       Kana Reading Practice
+      </h1>
+      <div>
+        <h2>
+          What this is
+        </h2>
+        <p>
+          After you learn the basics of hiragana and katakana, you need practice! Practicing individual characters is useful, 
+        but being able to read kana fluently means reading whole words, almost without thinking about it.
+        This app collects a list of hiragana and katakana words. When a random word appears, input the romaji equivalent in the text box and press enter.
+        If you're correct, it will go on to the next random word, otherwise, it will let you try again.
+        As a bonus, it also displays the meanings of the words, so you can also pickup the words' meanings as you go!
+        </p>
+        <p>
+          (I know some of these have kanji that are used instead of kana, but the focus of this app is to make reading kana as easy as reading the english alphabet, 
+          not becoming a fluent japanese reader)
+        </p>
+        <p>
+          For practicing individual kana, I'd recommend <a href="http://realkana.com/">real kana</a>.
+        </p>
+        
+
+        
+      </div>
+    </header>
+
+    <main>
+      <span id="kana">
+        
+      </span>
+      
+      (<span id="definition">
+      </span>)
+      <input type="text" id="userInput" />
+      
+      <div style="min-height:50px">
+         <div id="wrong" style="display:none;">
+        <img src="https://cdn.glitch.com/53337948-b770-4821-8c19-ee7739f806ae%2FWrong.png?1535989708661"/>  
+        <span>
+        Wrong!
+        </span>
+        
+      </div>
+      <div id="correct" style="display:none;">
+        <img src="https://cdn.glitch.com/53337948-b770-4821-8c19-ee7739f806ae%2FJapaneseCorrect.png?1535989709472"/>  
+        <span>
+        Correct!
+        </span>
+      </div>
+        
+      </div>
+     
+      <button type="submit" onclick="showAnswer()">Show Answer</button>
+      <button type="submit" onclick="setNewKana()">Get New Word</button>
+      
+    </main>
+
+    <footer>
+      Made with <a href="https://glitch.com">Glitch</a> by <a href="http://daniellethurow.com/"> Danielle Thurow</a>.
+    </footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+
+  </body>
+</html>
