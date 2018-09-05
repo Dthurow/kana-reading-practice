@@ -10,6 +10,8 @@ var wrongPic = document.getElementById('wrong');
 var totalWordsDiv = document.getElementById('totalwords');
 var totalRightDiv = document.getElementById('right');
 var totalDisplayedDiv = document.getElementById('totalDisplayed');
+var definitionSpan = document.getElementById('definitionSpan');
+var hideMeaning = false;
 
 var keyList = [];
 var keyListIndex = 0;
@@ -36,6 +38,17 @@ function isInArray(value, array) {
 
 function showAnswer(){
   textInput.value = kanaToRomajiDict[kanaP.innerText].romaji;
+}
+
+function toggleDefinitionDisplay(){
+ if (!hideMeaning)
+ {
+   definitionSpan.style.display = "none";
+ }
+  else{
+    definitionSpan.style.display = 'inline-block';
+  }
+  hideMeaning = !hideMeaning;
 }
 
 
@@ -262,7 +275,6 @@ kanaToRomajiDict = {
 "バッティング":{ romaji:"battingu", meaning:"Swing the bat in baseball"},
 "ベビーカー":{ romaji:"bebiikaa", meaning:"stroller (US)"},
 "ベッドタウン":{ romaji:"beddotaun", meaning:"bedroom suburbs"},
-"ビー玉":{ romaji:"biidama", meaning:"ball)"},
 "ビジネスホテル":{ romaji:"bijinesuhoteru", meaning:"budget hotel"},
 "ビロード":{ romaji:"biroodo", meaning:"velvet"},
 "ビル":{ romaji:"biru", meaning:"building (especially modern steel / concrete buildings)"},
@@ -292,8 +304,6 @@ kanaToRomajiDict = {
 "エネルギッシュ":{ romaji:"enerugisshu", meaning:"energetic"},
 "エンスト":{ romaji:"ensuto", meaning:"stall (as in an automobile engine)"},
 "エレベーター":{ romaji:"erebeetaa", meaning:"elevator (American English)"},
-"エロ":{ romaji:"ero", meaning:"erotic"},
-"エログ":{ romaji:"erogu", meaning:"erotic / adult oriented blog"},
 "エール":{ romaji:"eeru", meaning:"(1) to cheer on a player in a sports competition; (2) to express support for a candidate in an election"},
 "LLC":{ romaji:"eruerushii", meaning:"antifreeze coolants"},
 "エスカレーター":{ romaji:"esukareetaa", meaning:"escalator"},
@@ -304,7 +314,6 @@ kanaToRomajiDict = {
 "ファンファーレ":{ romaji:"fanfaare", meaning:"a musical fanfare"},
 "ファンタジック":{ romaji:"fantajikku", meaning:"fantastic"},
 "フェッチ":{ romaji:"fetchi", meaning:"(Computer Jargon) To fetch an instruction from main memory when a microprocessor executes a command"},
-"～フェチ":{ romaji:"fechi", meaning:"fetish (typically a sexual fetish but sometimes just referring to a distinctive preference)"},
 "フォアボール":{ romaji:"foabooru", meaning:"walk"},
 "フライ":{ romaji:"furai", meaning:"fly ball (baseball term)"},
 "フライ":{ romaji:"furai", meaning:"Deep frying"},
@@ -313,7 +322,6 @@ kanaToRomajiDict = {
 "ガラス or 硝子":{ romaji:"garasu", meaning:"glass (material)"},
 "ガーゼ":{ romaji:"gaaze", meaning:"gauze"},
 "ゲレンデ":{ romaji:"gerende", meaning:"ski slope"},
-"ギブ(アップ)":{ romaji:"gibu(appu)", meaning:"To give up"},
 "ゴム":{ romaji:"gomu", meaning:"rubber"},
 "ググる":{ romaji:"guguru", meaning:"to google"},
 "グラス":{ romaji:"gurasu", meaning:"drinking glass"},
@@ -347,19 +355,16 @@ kanaToRomajiDict = {
 "ジーパン":{ romaji:"jiipan", meaning:"jeans"},
 "ジュース":{ romaji:"juusu", meaning:"often used to refer to soda or energy drinks"},
 "カメラマン":{ romaji:"kameraman", meaning:"photographer"},
-"カン or 缶":{ romaji:"kan", meaning:"can (beverage can or tin can)"},
+"カン":{ romaji:"kan", meaning:"can (beverage can or tin can)"},
 "カンニング":{ romaji:"kanningu", meaning:"cheating"},
-"カッパ or 合羽":{ romaji:"kappa", meaning:"(rain) coat"},
+"カッパ":{ romaji:"kappa", meaning:"(rain) coat"},
 "カラン":{ romaji:"karan", meaning:"faucet"},
 "カラオケ":{ romaji:"karaoke", meaning:"empty) + orche(stra)"},
 "カルキ":{ romaji:"karuki", meaning:"lime (mineral)"},
 "カルピス":{ romaji:"karupisu", meaning:"Calpis (a milky soft drink)"},
 "カルタ":{ romaji:"karuta", meaning:"karuta (Japanese playing cards)"},
 "カルテ":{ romaji:"karute", meaning:"(a patients) medical record"},
-"カタルシス":{ romaji:"katarushisu", meaning:"purification or purgation"},
-"カチューシャ":{ romaji:"kachuusha", meaning:"Alice band; horseshoe-shaped hairband made of metal or plastic (often covered with cloth). However"},
-"キリスト or 基督":{ romaji:"kirisuto", meaning:"Christ"},
-"コーヒー or 珈琲":{ romaji:"koohii", meaning:"coffee"},
+"コーヒー":{ romaji:"koohii", meaning:"coffee"},
 "コック":{ romaji:"kokku", meaning:"a cook"},
 "コミカライズ":{ romaji:"komikaraizu", meaning:"to make a comic strip (manga) version of an originally non-comic strip title"},
 "コンビニ":{ romaji:"konbini", meaning:"convenience store"},
@@ -371,7 +376,7 @@ kanaToRomajiDict = {
 "コラーゲン":{ romaji:"koraagen", meaning:"collagen"},
 "コロッケー":{ romaji:"korokke", meaning:"croquette"},
 "コスプレ":{ romaji:"kosupure", meaning:"cosplay (a subculture involving dressing up in costumes"},
-"クラブ or 倶楽部":{ romaji:"kurabu", meaning:"a club or society"},
+"クラブ":{ romaji:"kurabu", meaning:"a club or society"},
 "クラクション":{ romaji:"kurakushon", meaning:"horn (on an automobile)"},
 "クランケ":{ romaji:"kuranke", meaning:"patient"},
 "クレーム":{ romaji:"kureemu", meaning:"a complaint"},
@@ -380,16 +385,15 @@ kanaToRomajiDict = {
 "キャベツ":{ romaji:"kyabetsu", meaning:"cabbage"},
 "キャンペーン":{ romaji:"kyanpeen", meaning:"a sales campaign or sweepstakes"},
 "キャップ":{ romaji:"kyappu", meaning:"cap"},
-"マイ〜":{ romaji:"mai~", meaning:"Someones own. Common examples include mai buumu: personal taste; mai kã: ones own car; mai waifu  : ones wife; mai hoomuu: ones own house; mai peesu: doing things at ones own (leisurely) pace"},
 "ママ":{ romaji:"mama", meaning:"mom"},
-"マンダラ or 曼陀羅":{ romaji:"mandara", meaning:"circle"},
+"マンダラ":{ romaji:"mandara", meaning:"circle"},
 "マニア":{ romaji:"mania", meaning:"enthusiasm"},
 "マンション":{ romaji:"manshon", meaning:"modern concrete apartment / condominium block"},
 "マロン":{ romaji:"maron", meaning:"chestnut"},
 "マスコミ":{ romaji:"masukomi", meaning:"mass media"},
 "メーカー":{ romaji:"meekaa", meaning:"manufacturer"},
 "メール":{ romaji:"meeru", meaning:"e-mail"},
-"ミイラ or 木乃伊":{ romaji:"miira", meaning:"a mummy"},
+"ミイラ":{ romaji:"miira", meaning:"a mummy"},
 "ミルク":{ romaji:"miruku", meaning:"milk"},
 "ミシン":{ romaji:"mishin", meaning:"sewing machine"},
 "モバイル":{ romaji:"mobairu", meaning:"mobile communications"},
@@ -399,7 +403,6 @@ kanaToRomajiDict = {
 "ノルマ":{ romaji:"noruma", meaning:"quota"},
 "ノート":{ romaji:"nooto", meaning:"a notebook"},
 "オーディエンス":{ romaji:"oodiensu", meaning:"group of people who participate in a show"},
-"OL":{ romaji:"ooeru", meaning:"female office worker"},
 "オフ":{ romaji:"ofu", meaning:"a sale at a store; e.g."},
 "オペ":{ romaji:"ope", meaning:"surgical operation"},
 "オーライ":{ romaji:"oorai", meaning:"all right"},
@@ -456,7 +459,7 @@ kanaToRomajiDict = {
 "サラダ":{ romaji:"sarada", meaning:"salad"},
 "サラリーマン":{ romaji:"sarariiman", meaning:"salaryman: a salaried office/white collar worker"},
 "センス":{ romaji:"sensu", meaning:"understanding of subtleties"},
-"セツナ or 剎那":{ romaji:"setsuna", meaning:"moment"},
+"セツナ":{ romaji:"setsuna", meaning:"moment"},
 "シーエム":{ romaji:"shiiemu", meaning:"television commercial"},
 "シール":{ romaji:"shiiru", meaning:"sticker"},
 "シュークリーム":{ romaji:"shuukuriimu", meaning:"a cream puff"},
@@ -541,7 +544,6 @@ kanaToRomajiDict = {
 "モーニングコール":{ romaji:"mooningukooru", meaning:"wake-up call"},
 "モーニングコート":{ romaji:"mooningukooto", meaning:"morning coat"},
 "モーニングサービス":{ romaji:"mooningusaabisu", meaning:"breakfast special"},
-"モラトリアム人間":{ romaji:"moratoriamuningen", meaning:"person"},
 "ナンバーディスプレイ":{ romaji:"nanbaadisupurei", meaning:"caller ID"},
 "ナンバープレート":{ romaji:"nanbaapureeto", meaning:"number plate"},
 "ノークレームノーリターン":{ romaji:"nookureemunooritaan", meaning:"no return"},
@@ -590,7 +592,7 @@ kanaToRomajiDict = {
 "ヨードチンキ":{ romaji:"yoodochinki", meaning:"tincture of iodine"},
 "ユニットバス":{ romaji:"yunittobasu", meaning:"modular bath"},
 "Uターンラッシュ":{ romaji:"yuutaanrasshu", meaning:"the rush of traffic and people"},
-"ゼミナール":{ romaji:"zeminaaruorzemi", meaning:"seminar"},
+"ゼミナール":{ romaji:"zeminaaru", meaning:"seminar"},
 "あう":{romaji: "au", meaning: "to meet"},
 "あおい":{romaji: "aoi", meaning: "blue"},
 "あかい":{romaji: "akai", meaning: "red"},
@@ -1065,7 +1067,7 @@ kanaToRomajiDict = {
 "やすい":{romaji: "yasui", meaning: "cheap, inexpensive"},
 "やすみ":{romaji: "yasumi", meaning: "holiday, vacation"},
 "やすむ":{romaji: "yasumu", meaning: "to rest"},
-"やっつ":{romaji: "yattsu", meaning: "eight"},
+"やっつ":{romaji: "yattsu", meaning: "eight things"},
 "やま":{romaji: "yama", meaning: "mountain"},
 "やる":{romaji: "yaru", meaning: "to do"},
 "よく":{romaji: "yoku", meaning: "often"},

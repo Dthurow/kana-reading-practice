@@ -19,7 +19,6 @@
 
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
-    <script src="scripts/wanakana.min.js"></script>
     <!-- import the webpage's client-side javascript file -->
     <script src="/scripts/client.js" defer></script>
   </head>
@@ -56,9 +55,11 @@
       <span id="kana">
         
       </span>
-      
+      <span id="definitionSpan" style="margin-left:20px;">
       (<span id="definition">
       </span>)
+      </span>
+      
       <input type="text" id="userInput" />
       
       <div style="min-height:50px">
@@ -82,8 +83,9 @@
        Total of Correct:<span id="right"></span>&nbsp;&nbsp;
        Total of All Words:<span id="totalwords"></span>&nbsp;&nbsp;
       </div>
-      <button type="submit" onclick="showAnswer()">Show Answer</button>
-      <button type="submit" onclick="setNewKana()">Get New Word</button>
+      <button style="margin-right:10px;" type="submit" onclick="showAnswer()">Show Answer</button>
+      <button style="margin-right:10px;"  type="submit" onclick="setNewKana()">Get New Word</button>
+      <input id="hideDef" type="checkbox" onclick="toggleDefinitionDisplay()"><label for="hideDef"><div class="checkbox"></div>Hide Meaning</label>
       
     </main>
 
